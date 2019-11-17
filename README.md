@@ -60,10 +60,13 @@ const firebaseConfig = {
 *  string
 *  boolean
 *  number
-*  date
+*  date: 使用date資料 data.toDate(), date.toMillis(), date.fromDate(), date.fromMillis()
 *  array
 *  object
 *  null
+
+**關於date，可以用dayjs: dayjs(date.toMillis()).format('YYYY/MM/DD hh:mm:ss')**  
+
 ```
 // example
 const docData = {
