@@ -15,7 +15,7 @@
     *  <a href="#userupdateprofile">user.updateprofile</a>
 *  <a href="#my-function">my function</a>
 *  <a href="#備份">備份</a>
-
+*  <a href="firebase-in-vuex">firebase in vuex</a>
 ## Installation
 ```npm install --save-dev firebase```
 
@@ -251,3 +251,8 @@ firestore-backup -a path/to/credentials/file.json -b /backups/myDatabase
 -L, --requestCountLimit <number> - The maximum number of requests to be made in parallel.
 -E, --excludeCollections <id> - Top level collection id(s) to exclude from backing up.
 ```
+
+## firebase in vuex
+
+*  vuex-store-firebase-user.js
+*  vuex-store-firebase-product.js
