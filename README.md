@@ -7,7 +7,7 @@
     *  <a href="#set">set</a>
     *  <a href="#add">add</a>
 *  <a href="#auth">auth</a>
-*  <a href="#firesotre-initmy-function">iresotre-init(my function)</a>
+*  <a href="#my-function">my function</a>
 *  <a href="#備份">備份</a>
 
 ## Installation
@@ -78,7 +78,7 @@ db.collection('coll')
 ## auth
 
 
-## firesotre-init(my function)
+## my function
 
 ### clearCollection(db, coll)
 清光指定Collection的全部資料

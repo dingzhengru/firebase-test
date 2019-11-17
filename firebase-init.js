@@ -59,4 +59,4 @@ let list = [
 
 
 
-initCollection(db, 'list', list)
+// initCollection(db, 'list', list)
