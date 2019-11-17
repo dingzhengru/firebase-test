@@ -12,10 +12,7 @@
     *  <a href="#signInWithEmailAndPassword">signInWithEmailAndPassword</a>
     *  <a href="#signInWithEmailAndPassword">signOut</a>
     *  <a href="#signInWithEmailAndPassword">sendEmailVerification</a>
-
-
-
-    *  <a href="#user.updateProfile">user.updateProfile</a>
+    *  <a href="#userupdateprofile">user.updateprofile</a>
 *  <a href="#my-function">my function</a>
 *  <a href="#備份">備份</a>
 
