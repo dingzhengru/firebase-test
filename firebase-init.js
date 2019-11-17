@@ -3,7 +3,6 @@ function clearCollection(db, coll) {
     console.log('clearCollection', coll);
     db.collection(coll).get().then((shotsnap) => {
         shotsnap.forEach((doc) => {
-            index++;
             db.collection(coll).doc(doc.id).delete();
         });
     });
@@ -25,12 +24,13 @@ function setNewData(db, coll, data) {
 function initCollection(db, coll, data) {
     console.log('initCollection', coll, data.length);
     let index = 0;
-    db.collection(coll).get().then((shotsnap) => {
+    db.collection(coll).get()
+    .then((shotsnap) => {
         if(shotsnap.docs.length == 0) {
             console.log('沒資料 直接Set進去');
             setNewData(db, coll, data);
         } else {
-            console.log('先清光資料，再Set進去')
+            console.log('先清光資料，再Set進去(最後一筆時代表index == docs.length')
             shotsnap.forEach((doc) => {
                 index++;
                 db.collection(coll).doc(doc.id).delete();
@@ -38,10 +38,25 @@ function initCollection(db, coll, data) {
                     setNewData(db, coll, data);
             });
         }
-        
-    }).catch(function(error) { console.log("initCollection Error:", error) });
+    })
+    .catch(function(error) { console.log("initCollection Error:", error) });
 }
 
+let list = [
+    {
+        id: 0,
+        name: 'list0'
+    },
+    {
+        id: 1,
+        name: 'list1'
+    },
+    {
+        id: 2,
+        name: 'list2'
+    },
+]
 
-var defaultProject = firebase.initializeApp(firebaseConfig);
-var db = firebase.firestore();
+
+
+initCollection(db, 'list', list)
