@@ -15,7 +15,7 @@
     *  <a href="#userupdateprofile">user.updateprofile</a>
 *  <a href="#my-function">my function</a>
 *  <a href="#備份">備份</a>
-*  <a href="firebase-in-vuex">firebase in vuex</a>
+*  <a href="#firebase-in-vuex">firebase in vuex</a>
 ## Installation
 ```npm install --save-dev firebase```
 
