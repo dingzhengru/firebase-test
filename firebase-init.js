@@ -60,3 +60,9 @@ let list = [
 
 
 // initCollection(db, 'list', list)
+
+
+
+firebase.auth().onAuthStateChanged((user) => {
+    console.log(user);
+});

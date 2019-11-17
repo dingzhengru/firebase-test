@@ -7,6 +7,15 @@
     *  <a href="#set">set</a>
     *  <a href="#add">add</a>
 *  <a href="#auth">auth</a>
+    *  <a href="#onAuthStateChanged">onAuthStateChanged</a>
+    *  <a href="#createUserWithEmailAndPassword">createUserWithEmailAndPassword</a>
+    *  <a href="#signInWithEmailAndPassword">signInWithEmailAndPassword</a>
+    *  <a href="#signInWithEmailAndPassword">signOut</a>
+    *  <a href="#signInWithEmailAndPassword">sendEmailVerification</a>
+
+    *  <a href="#user.updateProfile">user.updateProfile</a>
+
+
 *  <a href="#my-function">my function</a>
 *  <a href="#備份">備份</a>
 
@@ -77,6 +86,21 @@ db.collection('coll')
 
 ## auth
 
+### firebase.auth().onAuthStateChanged
+*  設置一個watcher，當auth有改變時就會進入
+*  參數是目前的user，若目前沒有user登入，則會是null
+```
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+
+    }
+});
+```
+
+### createUserWithEmailAndPassword
+### signInWithEmailAndPassword
+### signOut
+### sendEmailVerification
 
 ## my function
 
