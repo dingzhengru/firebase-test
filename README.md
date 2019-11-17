@@ -140,16 +140,16 @@ function initCollection(db, coll, data) {
 
 **先到專案設定 => 服務帳戶 => 產生新的私密金鑰 (會載一個json檔案下來)**  
 
+以下是 firestore-backup
 ```
 npm install -g firestore-backup
 
 firestore-backup -a path/to/credentials/file.json -b /backups/myDatabase
-```
-```
+
 -a, --accountCredentials <path> - 剛剛的json檔路徑
 -B, --backupPath <path>- 備份到哪的路徑
 
-//其他選項 
+// 其他選項 
 -P --prettyPrint 會將備份的json排版
 -S, --databaseStartPath <path> - The database collection or document path to begin backup.
 -L, --requestCountLimit <number> - The maximum number of requests to be made in parallel.
