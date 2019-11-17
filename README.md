@@ -35,7 +35,7 @@ require('firebase/auth');
 
 const firebaseConfig = {};
 
-const firestore = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 export { firebase, db };
