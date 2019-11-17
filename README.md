@@ -78,7 +78,7 @@ const docData = {
     date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
     dataNow: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
     array: [5, true, "hello"],
-    object: {},
+    map: {},
     geopoint: {x: 123, y: 456},
     reference: '/users/gwNmt83L2JCUEpeR9VLs'
     null: null,
