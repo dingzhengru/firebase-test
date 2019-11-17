@@ -65,6 +65,7 @@ const firebaseConfig = {
 *  object
 *  null
 ```
+// example
 const docData = {
     string: "Hello world!",
     boolean: true,
@@ -72,13 +73,8 @@ const docData = {
     date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
     dataNow: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
     array: [5, true, "hello"],
+    object: {}
     null: null,
-    object: {
-        a: 5,
-        b: {
-            nested: "foo"
-        }
-    }
 };
 ```
 
