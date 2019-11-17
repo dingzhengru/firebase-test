@@ -91,7 +91,7 @@ let data = {
     userRef: db.doc('users/' + firebase.auth().currentUser.uid)
 };
 
-// reference使用範例 ref.get()，並用exists確認是否存在  
+// 讀取範例 ref.get()，並用exists確認是否存在  
 db.collection(coll).get().then((shotsnap) => {
     shotsnap.forEach((doc) => {
         let userRef = doc.data().userRef;
