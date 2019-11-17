@@ -145,6 +145,7 @@ npm install -g firestore-backup
 
 firestore-backup -a path/to/credentials/file.json -b /backups/myDatabase
 ```
+```
 -a, --accountCredentials <path> - 剛剛的json檔路徑
 -B, --backupPath <path>- 備份到哪的路徑
 
