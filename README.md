@@ -8,7 +8,7 @@
     *  <a href="#add">add</a>
 *  <a href="#auth">auth</a>
 *  <a href="#firesotre-initmy-function">iresotre-init(my function)</a>
-
+*  <a href="#備份">備份</a>
 
 ## Installation
 ```npm install --save-dev firebase```
@@ -52,13 +52,28 @@ const firebaseConfig = {
 ## firestore
 
 ### get
-
+**shotsnap.docs.length**: 這collections資料筆數  
+**doc.id**: 這筆資料的id  
+**doc.data()**: 這筆資料的value  
+```
+db.collection('coll')
+.get()
+.then((snapshot) => {
+    snapshot.forEach((doc) => {
+        console.log(doc.id, doc.data());        
+    });
+});
+```
 
 ### set
 
+*  有的話就修改該doc，若沒有那個id，則會直接新增一筆資料，並把這筆資料設為此id
+*  修改會根據你給的欄位修改，沒指定到的不會更動，指定到沒有的會新增進去
+```db.collection("coll").doc('doc_id').set(data)```  
 
 ### add
-
+*  會直接用產生自動ID的方式新增資料
+```db.collection("coll").add(data)```
 
 ## auth
 
@@ -72,7 +87,6 @@ function clearCollection(db, coll) {
     console.log('clearCollection', coll);
     db.collection(coll).get().then((shotsnap) => {
         shotsnap.forEach((doc) => {
-            index++;
             db.collection(coll).doc(doc.id).delete();
         });
     });
@@ -117,4 +131,23 @@ function initCollection(db, coll, data) {
     })
     .catch(function(error) { console.log("initCollection Error:", error) });
 }
+```
+
+
+## 備份
+*  官方只提供使用Google Cloud的方法:https://firebase.google.com/docs/firestore/manage-data/export-import)
+*  其他備份資料的方法: https://github.com/steadyequipment/node-firestore-backup
+
+先到專案設定 => 服務帳戶 => 產生新的私密金鑰 (會載一個json檔案下來)
+```npm install -g firestore-backup```  
+```firestore-backup -a path/to/credentials/file.json -b /backups/myDatabase```  
+```
+-a, --accountCredentials <path> - 剛剛的json檔路徑
+-B, --backupPath <path>- 備份到哪的路徑
+
+//其他選項 
+-P --prettyPrint 會將備份的json排版
+-S, --databaseStartPath <path> - The database collection or document path to begin backup.
+-L, --requestCountLimit <number> - The maximum number of requests to be made in parallel.
+-E, --excludeCollections <id> - Top level collection id(s) to exclude from backing up.
 ```
