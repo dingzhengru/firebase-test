@@ -8,10 +8,10 @@
     *  <a href="#add">add</a>
 *  <a href="#auth">auth</a>
     *  <a href="#onAuthStateChanged">onAuthStateChanged</a>
+    *  <a href="#actionCodeSettings">actionCodeSettings</a>
     *  <a href="#createUserWithEmailAndPassword">createUserWithEmailAndPassword</a>
     *  <a href="#signInWithEmailAndPassword">signInWithEmailAndPassword</a>
     *  <a href="#signInWithEmailAndPassword">signOut</a>
-    *  <a href="#actionCodeSettings">actionCodeSettings</a>
     *  <a href="#signInWithEmailAndPassword">sendEmailVerification</a>
 
 
@@ -89,7 +89,7 @@ db.collection('coll')
 
 ## auth
 
-### firebase.auth().onAuthStateChanged
+### onAuthStateChanged
 *  設置一個watcher，當auth有改變時就會進入
 *  參數是目前的user，若目前沒有user登入，則會是null
 ```
@@ -99,7 +99,29 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 ```
+### actionCodeSettings
 
+*  url: 重新導向的url
+```
+const actionCodeSettings = {
+    // URL you want to redirect back to. The domain (www.example.com) for this
+    // URL must be whitelisted in the Firebase Console.
+    url: 'http://localhost:8081',
+
+    // This must be true.
+    handleCodeInApp: true,
+
+    iOS: {
+        bundleId: 'com.example.ios'
+    },
+    android: {
+        packageName: 'com.example.android',
+        installApp: true,
+        minimumVersion: '12'
+    },
+    dynamicLinkDomain: 'example.page.link'
+};
+```
 ### createUserWithEmailAndPassword
 *  創建使用者(使用email, password)
 *  result.user 可以取得新創的這個user
@@ -132,29 +154,6 @@ firebase.auth().signOut().then(() => {
 }).catch((error) =>  {
 
 });
-```
-### actionCodeSettings
-
-*  url: 重新導向的url
-```
-const actionCodeSettings = {
-    // URL you want to redirect back to. The domain (www.example.com) for this
-    // URL must be whitelisted in the Firebase Console.
-    url: 'http://localhost:8081',
-
-    // This must be true.
-    handleCodeInApp: true,
-
-    iOS: {
-        bundleId: 'com.example.ios'
-    },
-    android: {
-        packageName: 'com.example.android',
-        installApp: true,
-        minimumVersion: '12'
-    },
-    dynamicLinkDomain: 'example.page.link'
-};
 ```
 
 ### sendEmailVerification
