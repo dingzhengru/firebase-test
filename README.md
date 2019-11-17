@@ -63,6 +63,8 @@ const firebaseConfig = {
 *  date: 使用date資料 data.toDate(), date.toMillis(), date.fromDate(), date.fromMillis()
 *  array
 *  object
+*  geopoint: 經緯度{x: , y:}
+*  reference: 類似關聯式中的外鍵，但還是得用get()來取得資料，且存取時需附上key
 *  null
 
 **關於date，可以用dayjs: dayjs(date.toMillis()).format('YYYY/MM/DD hh:mm:ss')**  
@@ -76,9 +78,30 @@ const docData = {
     date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
     dataNow: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
     array: [5, true, "hello"],
-    object: {}
+    object: {},
+    geopoint: {x: 123, y: 456},
+    reference: '/users/gwNmt83L2JCUEpeR9VLs'
     null: null,
 };
+```
+**reference**  
+```
+// 存取範例 直接給 doc 或字串 'coll/uid'
+let data = {
+    userRef: db.doc('users/' + firebase.auth().currentUser.uid)
+};
+
+// reference使用範例 ref.get()，並用exists確認是否存在  
+db.collection(coll).get().then((shotsnap) => {
+    shotsnap.forEach((doc) => {
+        let userRef = doc.data().userRef;
+
+        userRef.get().then((d) => {
+            console.log(d.exists);
+            console.log(d.data());
+        })
+    })
+})
 ```
 
 ## firestore

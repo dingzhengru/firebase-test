@@ -63,6 +63,13 @@ let list = [
 
 
 
-firebase.auth().onAuthStateChanged((user) => {
-    console.log(user);
-});
+
+db.collection('list').get().then((shotsnap) => {
+    shotsnap.forEach((doc) => {
+        let userRef = doc.data().user;
+        userRef.get().then((d) => {
+            console.log(d.exists);
+            console.log(d.data());
+        })
+    })
+})
