@@ -64,7 +64,7 @@ const firebaseConfig = {
 *  array
 *  object
 *  geopoint: 經緯度{x: , y:}
-*  reference: 類似關聯式中的外鍵，但還是得用get()來取得資料，且存取時需附上key
+*  reference: 類似關聯式中的外鍵，但還是得用get()來取得資料，且存取時需附上uid
 *  null
 
 **關於date，可以用dayjs: dayjs(date.toMillis()).format('YYYY/MM/DD hh:mm:ss')**  
