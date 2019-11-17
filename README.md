@@ -1,5 +1,4 @@
 # Firebase
-
 *  <a href="#installation">Installation</a>
 *  <a href="#config">Config</a>
 *  <a href="#firestore">firestore</a>
@@ -17,8 +16,6 @@
 
 
     *  <a href="#user.updateProfile">user.updateProfile</a>
-
-
 *  <a href="#my-function">my function</a>
 *  <a href="#備份">備份</a>
 
@@ -167,6 +164,18 @@ user.sendEmailVerification(actionCodeSettings)
 }).catch((error) => {
     
 });
+```
+
+### updateProfile
+
+*  user的屬性與方法都在這: https://firebase.google.com/docs/reference/js/firebase.User
+*  可以用於更改user的一些非必要屬性
+
+```
+user.updateProfile({
+    displayName: 'username',
+    photoURL: ''
+})
 ```
 ## my function
 
