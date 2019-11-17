@@ -101,6 +101,7 @@ firebase.auth().onAuthStateChanged((user) => {
 ```
 ### actionCodeSettings
 
+*  有些方法需要引入此設定(驗證信箱)
 *  url: 重新導向的url
 ```
 const actionCodeSettings = {
@@ -188,7 +189,7 @@ function clearCollection(db, coll) {
 function setNewData(db, coll, data) {
     console.log('setNewData', coll, data.length);
     if(Array.isArray(data)) {
-        data.forEach(function(d) {
+        data.forEach((d) =>  {
             db.collection(coll).doc().set(d);
         })
     } else {
@@ -218,7 +219,7 @@ function initCollection(db, coll, data) {
             });
         }
     })
-    .catch(function(error) { console.log("initCollection Error:", error) });
+    .catch((error) => { console.log("initCollection Error:", error) });
 }
 ```
 
