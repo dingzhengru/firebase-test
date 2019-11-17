@@ -138,9 +138,12 @@ function initCollection(db, coll, data) {
 *  官方只提供使用Google Cloud的方法:https://firebase.google.com/docs/firestore/manage-data/export-import)
 *  其他備份資料的方法: https://github.com/steadyequipment/node-firestore-backup
 
-先到專案設定 => 服務帳戶 => 產生新的私密金鑰 (會載一個json檔案下來)
-```npm install -g firestore-backup```  
-```firestore-backup -a path/to/credentials/file.json -b /backups/myDatabase```  
+**先到專案設定 => 服務帳戶 => 產生新的私密金鑰 (會載一個json檔案下來)**  
+
+```
+npm install -g firestore-backup
+
+firestore-backup -a path/to/credentials/file.json -b /backups/myDatabase
 ```
 -a, --accountCredentials <path> - 剛剛的json檔路徑
 -B, --backupPath <path>- 備份到哪的路徑
