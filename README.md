@@ -125,6 +125,8 @@ db.collection('coll')
 *  有的話就修改該doc，若沒有那個id，則會直接新增一筆資料，並把這筆資料設為此id
 *  修改會根據你給的欄位修改，沒指定到的不會更動，指定到沒有的會新增進去
 ```db.collection("coll").doc('doc_id').set(data)```  
+*  doc() 直接擺空的話，就會是新增一筆資料，uid會自動生成  
+```db.collection("coll").doc().set(data)```
 
 ### add
 *  會直接用產生自動ID的方式新增資料
