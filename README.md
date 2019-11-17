@@ -11,7 +11,10 @@
     *  <a href="#createUserWithEmailAndPassword">createUserWithEmailAndPassword</a>
     *  <a href="#signInWithEmailAndPassword">signInWithEmailAndPassword</a>
     *  <a href="#signInWithEmailAndPassword">signOut</a>
+    *  <a href="#actionCodeSettings">actionCodeSettings</a>
     *  <a href="#signInWithEmailAndPassword">sendEmailVerification</a>
+
+
 
     *  <a href="#user.updateProfile">user.updateProfile</a>
 
@@ -98,10 +101,73 @@ firebase.auth().onAuthStateChanged((user) => {
 ```
 
 ### createUserWithEmailAndPassword
+*  創建使用者(使用email, password)
+*  result.user 可以取得新創的這個user
+```
+firebase.auth().createUserWithEmailAndPassword(email, password)
+.then((result) => {
+    
+})
+.catch((error) => {
+    
+})
+```
 ### signInWithEmailAndPassword
+*  登入(使用email, password)
+*  result.user 可以取得登入的這個user
+```
+firebase.auth().signInWithEmailAndPassword(email, password)
+.then((result) => {
+    
+})
+.catch((error) => {
+    
+});
+```
 ### signOut
+*  登出
+```
+firebase.auth().signOut().then(() => {
+
+}).catch((error) =>  {
+
+});
+```
+### actionCodeSettings
+
+*  url: 重新導向的url
+```
+const actionCodeSettings = {
+    // URL you want to redirect back to. The domain (www.example.com) for this
+    // URL must be whitelisted in the Firebase Console.
+    url: 'http://localhost:8081',
+
+    // This must be true.
+    handleCodeInApp: true,
+
+    iOS: {
+        bundleId: 'com.example.ios'
+    },
+    android: {
+        packageName: 'com.example.android',
+        installApp: true,
+        minimumVersion: '12'
+    },
+    dynamicLinkDomain: 'example.page.link'
+};
+```
+
 ### sendEmailVerification
 
+*  驗證信箱
+```
+user.sendEmailVerification(actionCodeSettings)
+.then(() => {
+    
+}).catch((error) => {
+    
+});
+```
 ## my function
 
 ### clearCollection(db, coll)
