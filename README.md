@@ -1,6 +1,7 @@
 # Firebase
 *  <a href="#installation">Installation</a>
 *  <a href="#config">Config</a>
+*  <a href="#data-type">data type</a>
 *  <a href="#firestore">firestore</a>
     *  <a href="#get">get</a>
     *  <a href="#set">set</a>
@@ -52,6 +53,32 @@ const firebaseConfig = {
     storageBucket: "",
     messagingSenderId: "",
     appId: ""
+};
+```
+
+## data type
+*  string
+*  boolean
+*  number
+*  date
+*  array
+*  object
+*  null
+```
+const docData = {
+    string: "Hello world!",
+    boolean: true,
+    number: 3.14159265,
+    date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
+    dataNow: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+    array: [5, true, "hello"],
+    null: null,
+    object: {
+        a: 5,
+        b: {
+            nested: "foo"
+        }
+    }
 };
 ```
 
