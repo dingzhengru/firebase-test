@@ -166,7 +166,7 @@ user.sendEmailVerification(actionCodeSettings)
 });
 ```
 
-### updateProfile
+### user.updateProfile
 
 *  user的屬性與方法都在這: https://firebase.google.com/docs/reference/js/firebase.User
 *  可以用於更改user的一些非必要屬性
