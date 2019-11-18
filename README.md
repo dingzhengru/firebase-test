@@ -6,6 +6,10 @@
     *  <a href="#get">get</a>
     *  <a href="#set">set</a>
     *  <a href="#add">add</a>
+    *  <a href="#where">where</a>
+    *  <a href="#orderby">orderBy</a>
+    *  <a href="#limit">limit</a>
+    *  <a href="#startat-endat">startAt, endAt</a>
 *  <a href="#auth">auth</a>
     *  <a href="#onAuthStateChanged">onAuthStateChanged</a>
     *  <a href="#actionCodeSettings">actionCodeSettings</a>
@@ -86,7 +90,7 @@ const docData = {
 ```
 **reference**  
 ```
-// 存取範例 直接給 doc 或字串 'coll/uid'
+// 存取範例 直接給 doc (其實不是很好用，直接存給變數會有問題)
 let data = {
     userRef: db.doc('users/' + firebase.auth().currentUser.uid)
 };
@@ -131,6 +135,48 @@ db.collection('coll')
 ### add
 *  會直接用產生自動ID的方式新增資料
 ```db.collection("coll").add(data)```
+
+## where
+**利用條件篩選**  
+*  使用範圍篩選時(>,<,<=,>=)，第一個orderBy必須跟前者為同一個欄位
+```
+// basic
+db.collection("users")
+  .where("name", "==", "Jhon")
+  .get()
+
+// good
+citiesRef.where("population", ">", 100000).orderBy("population")
+
+//bad
+citiesRef.where("population", ">", 100000).orderBy("country")
+```
+## orderBy
+**指定欄位排序**  
+*  第二參數決定升降序(兩種值: 'asc', 'desc')
+```
+db.collection("users")
+  .orderBy("name", "desc")
+  .get()
+```
+## limit
+**設定讀取數量**  
+```
+db.collection("users")
+  .orderBy("name", "desc")
+  .limit(2)
+  .get()
+```
+## startAt, endAt
+**根據排序欄位的值做篩選(其實where就能做到，且更詳細，但這個相對具有可讀性)**
+*  這兩種是屬於包含的類型(>=, <=)
+```
+// population >= 1000
+citiesRef.orderBy("population").startAt(1000)
+
+// population <= 1000
+citiesRef.orderBy("population").endAt(1000)
+```
 
 ## auth
 
