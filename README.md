@@ -80,14 +80,15 @@ const docData = {
     boolean: true,
     number: 3.14159265,
     date: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
-    dataNow: new Date(Date.now()),
+    dataNow: firebase.firestore.Timestamp.fromDate(new Date()),
     array: [5, true, "hello"],
     map: {},
     geopoint: {x: 123, y: 456},
     reference: '/users/gwNmt83L2JCUEpeR9VLs'
     null: null,
 };
-date now官方給的另一個方式: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
+雖然firebase可以直接存取 new Date() 但建議還是用firebase.firestore.Timestamp.fromDate(new Date())  
+因為使用上不同，代表你需要重新取得資料後才能調用方法(toMillis())  
 ```
 **reference**  
 ```
